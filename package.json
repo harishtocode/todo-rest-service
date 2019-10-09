@@ -1,0 +1,73 @@
+{
+  "name": "todo-api",
+  "version": "0.0.1",
+  "description": "todo REST service.",
+  "private": true,
+  "scripts": {
+    "build": "npm install && npm run test",
+    "start": "pm2 start process.json",
+    "watch": "nodemon ./bin/www.js",
+    "start:dev": "cross-env NODE_ENV=development pm2 start process.json",
+    "start:test": "cross-env NODE_ENV=test pm2 start process.json",
+    "start:pre-prod": "cross-env NODE_ENV=pre-prod pm2 start process.json",
+    "start:prod": "cross-env NODE_ENV=production pm2 start process.json",
+    "debug": "cross-env DEBUG='*,-not_this' NODE_ENV=development  pm2 start process.json --node-args='--debug=9229'",
+    "test": "mocha --timeout 10000 test --recursive --reporter spec",
+    "lint": "eslint --fix **/*.js",
+    "mocha-debug": "mocha test --recursive --inspect-brk",
+    "versions": "echo \"node: node --version\" && echo \"npm: npm --version\"",
+    "coverage": "nyc --reporter=lcov npm run test",
+    "report": "nyc report"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "todoService",
+    "microservice",
+    "API"
+  ],
+  "author": "Harish",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "bunyan": "^1.8.12",
+    "config": "^1.29.2",
+    "continuation-local-storage": "^3.2.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^5.0.1",
+    "express": "~4.15.5",
+    "express-openapi": "^1.4.0",
+    "express-validation": "^1.0.2",
+    "joi": "^13.1.2",
+    "request": "^2.87.0",
+    "serve-favicon": "~2.4.5",
+    "sinon": "^4.4.10",
+    "swagger-jsdoc": "^1.9.7",
+    "version-healthcheck": "^0.1.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.0",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "chai-json-schema": "^1.5.0",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-smells": "^1.0.1",
+    "istanbul": "^0.4.5",
+    "it-each": "^0.3.1",
+    "mocha": "^4.1.0",
+    "nodemon": "^1.17.3",
+    "nyc": "^11.4.1",
+    "proxyquire": "^2.0.1",
+    "rewire": "^3.0.2"
+  }
+}

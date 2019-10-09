@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "todo-api",
+      "script": "./bin/www.js",
+      "error_file": ((process.env.LOG_DIR) ? process.env.LOG_DIR : './log') + "/pm2-err.log",
+      "out_file": ((process.env.LOG_DIR) ? process.env.LOG_DIR : './log') + "/pm2-out.log",
+      "log_type": "json",
+      "instance_var": "0",
+      "instances": "1",
+      "exec_mode": "cluster"
+    }
+  ]
+}
